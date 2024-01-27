@@ -22,6 +22,7 @@ public class pageController {
         return "index";
     }
 
+    // To create new Form
     @PostMapping("/new")
     public String createForm(@RequestBody FormModel formModel){
         formService.createForm(formModel);

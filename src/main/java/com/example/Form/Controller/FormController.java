@@ -16,6 +16,7 @@ public class FormController {
     public FormController(FormService formService) {
         this.formService = formService;
     }
+    // To get All Forms
     @GetMapping("/all")
     public List<FormModel> getForms(){
         return formService.getForms();
