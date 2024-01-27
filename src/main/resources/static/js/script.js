@@ -288,7 +288,7 @@ $(document).ready(function () {
               }
             })
             q['choices'] = choices
-            qBars.push(JSON.stringify(q))
+            qBars.push(q)
         })
 
         const finalData  = {
@@ -320,8 +320,7 @@ $(document).ready(function () {
               'Content-Type': 'application/json',
             },
             data: JSON.stringify(finalData),
-            success: function (data) {
-              console.log(data);
+            success: function () {
               window.location.href ="http://localhost:8080/success"
             },
             error: function (xhr, status, error) {
@@ -390,4 +389,4 @@ function clearCheckboxError(num) {
   $(`#err-${num}`).html("");
   $(`#current-total-${num}`).css("color", "black");
 
-} 
+}

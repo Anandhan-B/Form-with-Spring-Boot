@@ -20,8 +20,8 @@ public class FormController {
     public List<FormModel> getForms(){
         return formService.getForms();
     }
-    @PostMapping("/new")
+    /*@PostMapping("/new")
     public FormModel createForm(@RequestBody FormModel formModel){
         return formService.createForm(formModel);
-    }
+    }*/
 }
