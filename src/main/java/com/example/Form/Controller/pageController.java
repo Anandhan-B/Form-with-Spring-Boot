@@ -23,11 +23,6 @@ public class pageController {
     }
 
     // To create new Form
-    @PostMapping("/new")
-    public String createForm(@RequestBody FormModel formModel){
-        formService.createForm(formModel);
-        return "redirect:/success";
-    }
     @GetMapping("/success")
     public String successPage(){
         return "success";

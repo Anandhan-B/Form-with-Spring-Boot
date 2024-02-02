@@ -61,7 +61,7 @@ $(document).ready(function () {
       </div>
       <div class="current-total-container" id="current-total-container-${i}">
           <div class="err" id="err-${i}"></div>
-          <div class="current-total">Total: <span class="c-total" id="current-total-${i}" name="current-total-${i}" for="current-total-${i}"></span></div> 
+          <div class="current-total">Total: <span class="c-total" id="current-total-${i}"></span></div>
         </div>
   </div>`);
 
@@ -258,7 +258,7 @@ $(document).ready(function () {
         e.preventDefault();
         let isError = false
         const title = $(`#title`).val()
-        const qBars = []
+        const questions = []
 
         $(`.q-bar`).each(function (i) {
             let q={}
@@ -288,15 +288,10 @@ $(document).ready(function () {
               }
             })
             q['choices'] = choices
-            qBars.push(q)
+            questions.push(q)
         })
 
-        const finalData  = {
-          "title":title,
-          "questions":qBars
-        }
-        //const formDatas = JSON.stringify(data)
-       // console.log(data);
+
        if(isError){
         $(`#form-err`).html("* Please fix errors in the form").show()
         setTimeout(() => {
@@ -312,7 +307,7 @@ $(document).ready(function () {
             headers: {
               'Content-Type': 'application/json',
             },
-            data: JSON.stringify(finalData),
+            data: JSON.stringify({title, questions}),
             success: function () {
               window.location.href ="http://localhost:8080/success"
             },

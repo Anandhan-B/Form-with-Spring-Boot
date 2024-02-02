@@ -3,6 +3,8 @@ package com.example.Form.Controller;
 import com.example.Form.Model.FormModel;
 import com.example.Form.Service.FormService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,8 +23,10 @@ public class FormController {
     public List<FormModel> getForms(){
         return formService.getForms();
     }
-    /*@PostMapping("/new")
-    public FormModel createForm(@RequestBody FormModel formModel){
-        return formService.createForm(formModel);
-    }*/
+
+    @PostMapping("/new")
+    public ResponseEntity<String> createForm(@RequestBody FormModel formModel){
+        formService.createForm(formModel);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
 }

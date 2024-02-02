@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Untitled Form</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="script.js"></script>
+    <script th:src="@{/js/script.js}"></script>
 
 </head>
 
@@ -77,7 +77,7 @@
                     <div class="current-total-container" id="current-total-container-1">
                         <div class="err" id="err-1"></div>
                         <div class="current-total">Total: <span class="c-total" id="current-total-1"
-                                name="current-total-1" for="current-total-1"></span></div>
+                                ></span></div>
                     </div>
                 </div>
 
