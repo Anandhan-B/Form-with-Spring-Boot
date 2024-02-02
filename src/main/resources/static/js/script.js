@@ -305,16 +305,9 @@ $(document).ready(function () {
        }
        else{
         $(`#form :input`).prop('disabled', true);
-//        fetch('http://127.0.0.1:8080/new', {
-//          method: 'POST',
-//          headers: {
-//            'Content-Type': 'application/json'
-//          },
-//          body: finalData
-//        })
 
         $.ajax({
-            url: '/new',
+            url: '/api/v1/form/new',
             type: 'POST',
             headers: {
               'Content-Type': 'application/json',

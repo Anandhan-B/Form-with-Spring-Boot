@@ -35,8 +35,9 @@ body {
 }
 
 .add-choice {
-    width: 50px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
     display: grid;
     place-content: center;
     background: rgb(0, 0, 0, .05);
@@ -170,6 +171,8 @@ body::-webkit-scrollbar-thumb {
 
 }
 
+
+
 .q {
     margin: 10px;
 }
@@ -234,16 +237,18 @@ body::-webkit-scrollbar-thumb {
     border: none;
     outline: none;
     padding: 10px;
-    font-size: 14pt;
+    font-size: 13pt;
     background: rgb(0, 0, 0, .05);
     border-bottom: solid rgb(0, 0, 0, .2) 1px;
 }
 
 .choices input:focus {
 
-    border-bottom: solid rgb(0, 0, 0) 1px;
+    border-bottom: solid rgb(0, 0, 0) 1px ;
 
 }
+
+
 
 .create {
     width: 66vw;
@@ -257,7 +262,7 @@ body::-webkit-scrollbar-thumb {
     width: 100px;
     height: 40px;
     font-size: 14pt;
-    background: white;
+    background: #fff;
     border-radius: 5px;
     margin-bottom: 15px;
     margin-top: 20px;
@@ -265,8 +270,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .create input[type="submit"]:hover {
-    background: rgb(115, 235, 115);
-    border: solid green 2px;
+    background: rgb(235, 235, 235);
+    transition: .2s;
 }
 
 .total-mark {
