@@ -12,8 +12,12 @@ public class QuestionModel {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
+
+   @Column(nullable = false,length = 1000)
    private String question;
+   @Column(nullable = false)
    private String type;
+   @Column(nullable = false)
    private Integer totalMark;
    @OneToMany(cascade = CascadeType.ALL)
    @JoinColumn(name = "question_id")

@@ -10,8 +10,11 @@ public class ChoiceModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false,length = 500)
     private String choice;
+    @Column(nullable = false)
     private Integer mark;
+    @Column(nullable = false)
     private Boolean ans;
 
     public ChoiceModel(String choice, Integer mark, Boolean ans) {
