@@ -309,10 +309,14 @@ $(document).ready(function () {
             },
             data: JSON.stringify({title, questions}),
             success: function () {
-              window.location.href ="http://localhost:8080/success"
+              window.location.href ="http://localhost:8080"
             },
             error: function (xhr, status, error) {
               console.error('AJAX error:', status, error);
+              $(`#form-err`).html(xhr.responseText).show()
+                      setTimeout(() => {
+                        $(`#form-err`).html("").hide()
+                      }, 5000);
             }
           });
        }
