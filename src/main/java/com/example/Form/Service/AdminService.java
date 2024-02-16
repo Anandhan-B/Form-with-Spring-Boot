@@ -64,6 +64,6 @@ public class AdminService {
     public void editAdmin(AdminModel oldAdmin, AdminModel newAdmin) {
         if(newAdmin.getEmail() != null) oldAdmin.setEmail(newAdmin.getEmail());
         if(newAdmin.getPassword() != null) oldAdmin.setPassword(newAdmin.getPassword());
-
+        adminRepository.save(oldAdmin);
     }
 }
