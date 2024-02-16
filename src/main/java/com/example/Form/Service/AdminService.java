@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Data
 @Service
@@ -50,5 +51,9 @@ public class AdminService {
             e.printStackTrace();
             return new ResponseEntity<>("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    public Optional<AdminModel> getOneAdmin(Long id) {
+        return adminRepository.findById(id);
     }
 }

@@ -25,9 +25,13 @@ public class StudentController {
     }
 
     @GetMapping("/one/{id}")
-    public ResponseEntity<> getOneStudent(@RequestParam Long id){
+    public ResponseEntity<?> getOneStudent(@RequestParam Long id){
          try {
-
+            Optional<Students> student = studentService.getOneStudent(id);
+            if(student.isPresent()){
+             return new ResponseEntity<>(student.get(),HttpStatus.OK);
+            }
+             return new ResponseEntity<>("Student Not Found",HttpStatus.NOT_FOUND);
          }catch (Exception e){
              e.printStackTrace();
              return new ResponseEntity<>("Internal Server Error",HttpStatus.INTERNAL_SERVER_ERROR);

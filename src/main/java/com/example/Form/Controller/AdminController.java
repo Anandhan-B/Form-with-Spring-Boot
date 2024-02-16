@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/admin")
@@ -19,8 +20,21 @@ public class AdminController {
         this.adminService = adminService;
     }
     @GetMapping("/all")
-    public List<AdminModel> allStudents(){
+    public List<AdminModel> allAdmins(){
         return adminService.allAdmin();
+    }
+    @GetMapping("/one/{id}")
+    public ResponseEntity<?> getOneAdmin(@RequestParam Long id){
+        try {
+            Optional<AdminModel> admin = adminService.getOneAdmin(id);
+            if(admin.isPresent()){
+                return new ResponseEntity<>(admin.get(),HttpStatus.OK);
+            }
+            return new ResponseEntity<>("Admin Not Found",HttpStatus.NOT_FOUND);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>("Internal Server Error",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
     @PostMapping("/new")
     public ResponseEntity<String> createStudent(@RequestBody AdminModel admin){
