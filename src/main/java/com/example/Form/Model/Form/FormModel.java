@@ -1,4 +1,4 @@
-package com.example.Form.Model;
+package com.example.Form.Model.Form;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -28,6 +28,8 @@ public class FormModel {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Date modifiedAt;
 
+    private Date releaseDate;
+
     public FormModel(String title, List<QuestionModel> questions) {
         this.title = title;
         this.questions = questions;
@@ -48,10 +50,6 @@ public class FormModel {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -66,6 +64,22 @@ public class FormModel {
 
     public void setQuestions(List<QuestionModel> questions) {
         this.questions = questions;
+    }
+
+    public Date getReleaseDate() {
+        return releaseDate;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public Date getModifiedAt() {
+        return modifiedAt;
+    }
+
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     @Override

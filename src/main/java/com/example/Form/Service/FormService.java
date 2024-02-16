@@ -1,6 +1,6 @@
 package com.example.Form.Service;
 
-import com.example.Form.Model.FormModel;
+import com.example.Form.Model.Form.FormModel;
 import com.example.Form.Repository.FormRepository;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +41,11 @@ public class FormService {
     public Optional<FormModel> getSingleForm(Long id) {
         return formRepository.findById(id);
 
+    }
+
+    public void editForm(FormModel oldForm, FormModel newForm) {
+        if (newForm.getTitle() != null) oldForm.setTitle(newForm.getTitle());
+        if (newForm.getQuestions() != null) oldForm.setQuestions(newForm.getQuestions());
+        formRepository.save(oldForm);
     }
 }

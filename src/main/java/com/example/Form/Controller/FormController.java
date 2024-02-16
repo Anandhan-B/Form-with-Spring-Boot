@@ -1,15 +1,17 @@
 package com.example.Form.Controller;
 
-import com.example.Form.Model.ChoiceModel;
-import com.example.Form.Model.FormModel;
-import com.example.Form.Model.QuestionModel;
+import com.example.Form.Model.Form.ChoiceModel;
+import com.example.Form.Model.Form.FormModel;
+import com.example.Form.Model.Form.QuestionModel;
 import com.example.Form.Service.FormService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/form")
@@ -31,6 +33,10 @@ public class FormController {
         try {
             String title = formModel.getTitle();
             List<QuestionModel> questions = formModel.getQuestions();
+            Date release = formModel.getReleaseDate();
+            if(release == null ){
+                formModel.setReleaseDate(new Date());
+            }
             if (title == null || title.isBlank() || questions == null || questions.isEmpty()) {
                 return new ResponseEntity<>("Data should not be Empty", HttpStatus.BAD_REQUEST);
             }
@@ -66,10 +72,31 @@ public class FormController {
 
     }
 
+    @PutMapping("/edit/{id}")
+    public ResponseEntity<String> editForm(@RequestParam Long id, @RequestBody FormModel newForm){
+        try{
+        Optional<FormModel> form = formService.getSingleForm(id);
+        if(form.isPresent()){
+            FormModel oldForm = form.get();
+            formService.editForm(oldForm,newForm);
+            return new ResponseEntity<>("Form Updated Successfully",HttpStatus.OK);
+        }
+        return  new ResponseEntity<>("Form Not Found",HttpStatus.NOT_FOUND);
+        }catch(Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>("Internal Server Error",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @DeleteMapping("/del/{id}")
     public ResponseEntity<String> deleteForm(@RequestParam Long id){
+        try{
         formService.deleteForm(id);
         return new ResponseEntity<>("Form Deleted",HttpStatus.ACCEPTED);
+        }catch(Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>("Internal Server Error",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }

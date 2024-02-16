@@ -1,4 +1,4 @@
-package com.example.Form.Model;
+package com.example.Form.Model.Form;
 
 import jakarta.persistence.*;
 import lombok.Data;

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Data
 @Service
@@ -47,5 +48,21 @@ public class StudentService {
             e.printStackTrace();
             return new ResponseEntity<>("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    public void deleteStudent(Long id) {
+        studentRepository.deleteById(id);
+    }
+
+    public Optional<Students> getOneStudent(Long id) {
+        return studentRepository.findById(id);
+    }
+
+    public void editStudent(Students oldStudent, Students newStudent) {
+        if (newStudent.getName() != null) oldStudent.setName(newStudent.getName());
+        if (newStudent.getEmail() != null) oldStudent.setEmail(newStudent.getEmail());
+        if (newStudent.getPassword() != null) oldStudent.setPassword(newStudent.getPassword());
+        if (newStudent.getUniversity() != null) oldStudent.setUniversity(newStudent.getUniversity());
+        studentRepository.save(oldStudent);
     }
 }
