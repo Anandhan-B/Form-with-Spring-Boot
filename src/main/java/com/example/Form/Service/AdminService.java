@@ -56,4 +56,14 @@ public class AdminService {
     public Optional<AdminModel> getOneAdmin(Long id) {
         return adminRepository.findById(id);
     }
+
+    public void deleteAdmin(Long id) {
+        adminRepository.deleteById(id);
+    }
+
+    public void editAdmin(AdminModel oldAdmin, AdminModel newAdmin) {
+        if(newAdmin.getEmail() != null) oldAdmin.setEmail(newAdmin.getEmail());
+        if(newAdmin.getPassword() != null) oldAdmin.setPassword(newAdmin.getPassword());
+
+    }
 }
