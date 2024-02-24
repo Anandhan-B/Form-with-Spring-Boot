@@ -6,6 +6,8 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,16 +18,20 @@ import java.util.Optional;
 @Service
 public class StudentService {
     private final StudentRepository studentRepository;
+    private final PasswordEncoder passwordEncoder;
     @Autowired
-    public StudentService(StudentRepository studentRepository) {
+    public StudentService(StudentRepository studentRepository, PasswordEncoder passwordEncoder) {
         this.studentRepository = studentRepository;
+        this.passwordEncoder = passwordEncoder;
     }
     public List<Students> allStudent(){
         return studentRepository.findAll();
     }
 
-    public Students createStudent(Students student){
-        return  studentRepository.save(student);
+    public void createStudent(Students student){
+
+
+          studentRepository.save(student);
     }
     public ResponseEntity<String> loginStudent(Students student){
         try {

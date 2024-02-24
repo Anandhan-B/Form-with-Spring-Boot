@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+    body { 
+        
+        overflow-x: hidden;
+        
+    } 
+
+
+    #formContainer { 
+        margin-bottom: 20px; 
+    } 
+    button { 
+        margin: 10px; 
+        padding: 8px 16px; 
+        background-color: #4CAF50; 
+        color: #fff; 
+        border: none; 
+        border-radius: 4px; 
+        cursor: pointer; 
+    } 
+
+    button:hover { 
+        background-color: #45a049; 
+    } 
+
+    table { 
+        border-collapse: collapse; 
+        width: 80%; 
+        margin: 4rem auto;
+    } 
+
+    th, 
+    td { 
+        border: 1px solid #ddd; 
+        padding: 8px; 
+        text-align: left; 
+    } 
+
+    th { 
+        background-color: #4CAF50; 
+        color: #fff; 
+    } 
+    .Action{
+        width: 300px;
+    }
+    .navbar{
+        height: 70px;
+        background: green;
+        
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 20pt;
+        gap: 20px;
+        color: white;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 30px;
+    }
+    .logo{
+        font-size: 30pt;
+    }
+    .nav-items{
+        display: flex;
+        gap: 20px;
+        padding-right: 30px;
+    }
+    .add{
+        position: relative;
+        top: 50px;
+        left: 125px;
+
+    }

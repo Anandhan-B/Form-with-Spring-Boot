@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head> 
+	<title> 
+		User Data Management 
+	</title> 
+	<link rel="stylesheet" href="/css/indexform.css" >
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head> 
+
+<body> 
+
+	<nav class="navbar">
+		<div class="logo">LOGO</div>
+		<div class="nav-item">User
+            <i class='bx bxs-user-circle user'></i>
+        </div>
+		
+	</div>
+	</nav>
+	<div><h1>Available Now</h1></div>
+	<table class="outputTable">
+		
+		<tr> 
+			<th>Id</th> 
+			<th>QuestionSet</th> 
+			<th>Release Date</th> 
+			<th>Action</th>  
+		</tr> 
+		<tr th:each="form: ${available}">
+			<td th:text="${form.id}">1</td>
+			<td th:text="${form.title}">English Question</td>
+			<td th:text="${form.releaseDate}">0</td>
+			<td><button>View</button></td>
+			
+		</tr>
+	</table>
+
+	<div><h1>Scheduled Forms</h1></div>
+	<table class="outputTable">
+		<tr>
+			<th>Id</th>
+			<th>QuestionSet</th>
+			<th>Release Date</th>
+			<th>Action</th>
+		</tr>
+		<tr th:each="form: ${upcoming}">
+			<td th:text="${form.id}">1</td>
+			<td th:text="${form.title}">English Question</td>
+			<td th:text="${form.releaseDate != null ? form.releaseDate : 'No Releaase Date'}">0</td>
+			<td><button>View</button></td>
+		</tr>
+	</table>
+</body> 
+
+</html>
+
+

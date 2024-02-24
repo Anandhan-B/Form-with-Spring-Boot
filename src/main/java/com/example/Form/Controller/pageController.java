@@ -41,11 +41,12 @@ public class pageController {
             }
             else {
                 availableForms.add(form);
+
             }
         }
-        model.addAttribute("available",availableForms);
-        model.addAttribute("upcoming",upcomingForms);
-        return "index";
+        model.addAttribute("available",availableForms.reversed());
+        model.addAttribute("upcoming",upcomingForms.reversed());
+        return "indexform";
 
     }
 
@@ -107,6 +108,6 @@ public class pageController {
         List<FormModel> forms = formService.getForms();
         model.addAttribute("forms",forms);
         List<Students> students = studentService.allStudent();
-        return "adminpanel";
+        return "adminform";
     }
 }

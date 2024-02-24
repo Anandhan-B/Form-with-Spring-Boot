@@ -7,7 +7,7 @@
 }
 
 body{
-    background: linear-gradient(110deg,#5fb875,green );
+    background: rgb(218, 240, 247);
     font-family: 'Roboto';
     overflow: hidden;
     height: 100dvh;
@@ -47,16 +47,40 @@ body{
 .label{
    display: block;
    font-size: 1.2rem;
+   margin-top: 10px;
 
 }
 .field{
     width: 100%;
-    border: solid grey 1px;
-    height: 35px;
+    height: 40px;
+    background: transparent;
+    border: none;
     outline: none;
-    font-size: 1.1rem;
-    padding: 0 1% 0 1%;
+    border-bottom: 2px solid #afafaf;
+    padding-right: 23px;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 500;
 }
+.field:focus{
+    border-bottom: 2px solid #818181;
+}
+#icon{
+    visibility: hidden;
+}
+
+.bx{
+    margin-left: 350px;
+    margin-bottom: -35px;
+    font-size: 20px;
+}
+.field-icon {
+    float: right;
+    margin-left:325px;
+    margin-top: -40px;
+    position: relative;
+    z-index: 2;
+  }
 .field::placeholder{
     padding: 2%;
     font-size: .9rem;
@@ -65,9 +89,7 @@ body{
     background: green;
     color: white;
 }
-.field:focus{
-    border: solid #333 2px;
-}
+
 .radio-field{
     border: none;
     display: flex;
@@ -78,17 +100,24 @@ body{
     cursor: default;
     padding: 0;
 }
+
 .submit{
     height: 40px;
-    width: 100%;
+    width: 150px;
     font-size: 1rem;
     font-family: 'Roboto';
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: capitalize;
-    margin: 3% 0;
+    margin: 15px 110px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(0, 190, 25);
+}
+.submit:hover{
+    color: orange;
 }
 
 .login {
-    font-size: .9rem;
+    margin-left: 90px;
 }

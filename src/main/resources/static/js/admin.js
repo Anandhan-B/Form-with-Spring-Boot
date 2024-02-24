@@ -37,6 +37,21 @@ $(document).ready(function () {
 
         
     });
+    $(".toggle-password").click(function() {
+
+      $(this).toggleClass("fa-eye fa-eye-slash");
+      var input = $(`#password`);
+      if (input.attr("type") == "password") {
+        input.attr("type", "text");
+      } else {
+        input.attr("type", "password");
+      }
+    });
+
+    $(`#password`).focus(function () {
+      $(`#icon`).css("visibility","visible");
+    })
+  
 
     function validateEmail(email) {
         const pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
